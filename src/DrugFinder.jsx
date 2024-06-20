@@ -76,22 +76,17 @@ export function DrugFinder() {
     };
 
     return (
-        <Box className="x"
-            display="flex"
-            textAlign={"left"}
-            alignItems="center"
-            flexDirection="column"
-            sx={{ mt: 5 }}
+        <Box className="drugList"
+
             component="form"
             autoComplete="off"
             onSubmit={onSubmit}
         >
-            <TextField
+            <TextField className="drugList__input"
                 id="drug"
                 label="Drug"
                 variant="outlined"
                 size="small"
-                sx={{ width: 400 }}
                 value={drug}
                 onChange={(e) => { setDrug(e.target.value); }}
                 error={error.error}
@@ -99,30 +94,28 @@ export function DrugFinder() {
             />
 
             <LoadingButton
+                className="drugList__btn"
                 type="submit"
                 variant="contained"
                 loading={loading}
                 loadingIndicator="Loading..."
-                sx={{ mt: 2, width: 400 }}
             >
                 Search
             </LoadingButton>
 
-            <Box
-                sx={{ m: 3 }}
-            >
+            <Box className="drugList__results">
 
                 {data && data.results && data.results.map((drug) => (
                     <Box
+
                         key={drug.product_id}
                         id={drug.product_id}
                         onClick={() => navigate(`/drug/${drug.product_id}`)}
-                        sx={{ width: 1000, border: 1, borderColor: "grey.500", borderRadius: 1, p: 2, m: 1 }}
+                        sx={{ width: 1000, border: 1, borderColor: "grey.500", borderRadius: 1, p: 2, m: 1, cursor: "pointer" }}
                     >
-                        <Typography>{drug.generic_name}</Typography>
+                        <Typography fontWeight="bold">{drug.generic_name}</Typography>
                         <Typography>Brand: {drug.brand_name}</Typography>
                         <Typography>Company: {drug.labeler_name}</Typography>
-
                     </Box>
                 ))}
             </Box>

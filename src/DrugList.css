@@ -1,0 +1,27 @@
+.container {
+    background-color: white;
+    padding: 50px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.578);
+}
+
+.drugList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    min-width: 1000px;
+    margin-top: 40px;
+}
+
+.drugList__input {
+    width: 400px;
+}
+
+.drugList__btn {
+    width: 400px;
+    margin-top: 20px !important;
+}
+
+.drugList__results {
+    margin: 30px;
+}

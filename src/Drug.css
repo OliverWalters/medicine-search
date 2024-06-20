@@ -1,4 +1,40 @@
-.dataInfo {
-    display: inline-block;
+.drug__title {
+    font-size: 40px !important;
     font-weight: bold !important;
+    text-align: center;
+    color: white;
+}
+
+.drug__icon {
+    font-size: 40px !important;
+    margin-right: 10px;
+}
+
+.drug__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin-top: 3rem;
+    background-color: #ffffff;
+    color: black;
+    padding: 40px;
+    border: #dedede solid 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.578);
+}
+
+.drug__info__label {
+    display: block;
+    font-weight: bold !important;
+}
+
+.drug__info__data {
+    min-height: 60px;
+    max-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .drug__info {
+        grid-template-columns: 1fr;
+    }
 }
