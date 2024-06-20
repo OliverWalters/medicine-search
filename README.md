@@ -1,8 +1,36 @@
-# React + Vite
+# Medicine Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Welcome to the Medicine Search App, a React application utilizing Material-UI and the OpenFDA API. This app allows users to search for medicines and view detailed information about them.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Search Page**: Allows users to search for medicines using the OpenFDA API.
+- **Detailed Medicine Page**: Displays comprehensive details about a selected medicine when clicked from the search results.
+
+## Technologies Used
+
+- **Frontend**:
+  - React
+  - Material-UI
+
+- **API**:
+  - [OpenFDA API](https://open.fda.gov/apis/): Provides access to FDA drug information.
+
+- **Other Tools**:
+  - Git for version control
+
+## Usage
+
+- **Search for Medicines**: Enter the name of the medicine in the search bar and press the button.
+- **View Detailed Information**: Click on any medicine from the search results to view more details about it.
+- **Explore**: Navigate through different medicines and explore their details.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Contact
+
+For any inquiries, please contact us at oliver22official@gmail.com.
