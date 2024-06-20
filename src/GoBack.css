@@ -1,0 +1,12 @@
+.goBack-btn {
+    position: absolute !important;
+    top: 5%;
+    left: 8%;
+    border-radius: 200px !important;
+    background-color: white !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.goBack-btn:focus {
+    outline: none !important;
+}
