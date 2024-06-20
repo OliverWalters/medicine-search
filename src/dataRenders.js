@@ -15,6 +15,7 @@ export const renderActiveIngredients = (data) => {
     return ingredientNames;
 };
 
+
 export const renderProductStatus = (data) => {
     if (!data || !data.results || data.results.length === 0) {
         return null;
@@ -24,6 +25,7 @@ export const renderProductStatus = (data) => {
 
     return finished ? 'Product finished' : 'Product in development';
 };
+
 
 export const renderPackaging = (data) => {
     if (!data || !data.results || data.results.length === 0) {
@@ -41,6 +43,7 @@ export const renderPackaging = (data) => {
     return packagingDescriptions;
 };
 
+
 export const renderRoutes = (data) => {
     if (!data || !data.results || data.results.length === 0) {
         return null;
@@ -56,6 +59,7 @@ export const renderRoutes = (data) => {
 
     return routesDescriptions;
 };
+
 
 export const renderPharmClass = (data) => {
     if (!data || !data.results || data.results.length === 0) {
