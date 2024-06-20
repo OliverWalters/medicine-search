@@ -7,7 +7,7 @@ export function DrugList() {
     return (
         <Container className="container"
             maxWidth="lg"
-            sx={{ m: 5 }}>
+        >
 
             <Typography
                 className="title"

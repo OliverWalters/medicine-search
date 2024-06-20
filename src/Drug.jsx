@@ -34,6 +34,13 @@ export function Drug() {
 
     }, [ndc]);
 
+    const activeIngredients = renderActiveIngredients(data);
+    const productStatus = renderProductStatus(data);
+    const packaging = renderPackaging(data);
+    const routes = renderRoutes(data);
+    const pharmClass = renderPharmClass(data);
+
+
 
     return (
         <Container
@@ -53,17 +60,17 @@ export function Drug() {
                     ><VaccinesIcon className="drug__icon" />{drug.generic_name}</Typography>
 
                     <Box className="drug__info">
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Name:</span> {drug.generic_name}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Medicine Code:</span> {drug.product_ndc}</Typography>
-                        <Typography className='drug__info__data'> <span className='drug__info__label'>Brand:</span> {drug.brand_name}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Company:</span> {drug.labeler_name}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Active Ingredients:</span> {renderActiveIngredients(data)}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Product Status:</span> {renderProductStatus(data)}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Dosage forms:</span> {drug.dosage_form}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Routes for use:</span> {renderRoutes(data)}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Product type:</span> {drug.product_type}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Packaging:</span> {renderPackaging(data)}</Typography>
-                        <Typography className='drug__info__data'><span className='drug__info__label'>Pharmacological class:</span> {renderPharmClass(data)}</Typography>
+                        {drug.generic_name && <Typography className='drug__info__data'><span className='drug__info__label'>Name:</span> {drug.generic_name}</Typography>}
+                        {drug.product_ndc && <Typography className='drug__info__data'><span className='drug__info__label'>Medicine Code:</span> {drug.product_ndc}</Typography>}
+                        {drug.brand_name && <Typography className='drug__info__data'> <span className='drug__info__label'>Brand:</span> {drug.brand_name}</Typography>}
+                        {drug.labeler_name && <Typography className='drug__info__data'><span className='drug__info__label'>Company:</span> {drug.labeler_name}</Typography>}
+                        {activeIngredients && <Typography className='drug__info__data'><span className='drug__info__label'>Active Ingredients:</span> {activeIngredients}</Typography>}
+                        {productStatus && <Typography className='drug__info__data'><span className='drug__info__label'>Product Status:</span> {productStatus}</Typography>}
+                        {drug.dosage_form && <Typography className='drug__info__data'><span className='drug__info__label'>Dosage forms:</span> {drug.dosage_form}</Typography>}
+                        {routes && <Typography className='drug__info__data'><span className='drug__info__label'>Routes for use:</span> {routes}</Typography>}
+                        {drug.product_type && <Typography className='drug__info__data'><span className='drug__info__label'>Product type:</span> {drug.product_type}</Typography>}
+                        {packaging && <Typography className='drug__info__data'><span className='drug__info__label'>Packaging:</span> {packaging}</Typography>}
+                        {pharmClass && <Typography className='drug__info__data'><span className='drug__info__label'>Pharmacological class:</span> {pharmClass}</Typography>}
                     </Box>
                 </Box>
             )}
