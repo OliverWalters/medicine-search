@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom';
 import { Box, Container, Typography } from "@mui/material";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import { useEffect, useState } from 'react';
-import { GoBack } from './GoBack';
-import "./Drug.css";
-import { renderActiveIngredients, renderPackaging, renderPharmClass, renderProductStatus, renderRoutes } from './dataRenders';
+import { NavigateToHome } from './NavigateToHome';
+import { DrugInfoItem } from './DrugInfoItem';
+import "./assets/Drug.css";
+import { renderActiveIngredients, renderPackaging, renderPharmClass, renderProductStatus, renderRoutes } from './services/dataRenders';
 
 const API_URL = "https://api.fda.gov/drug/ndc.json";
 const SEARCH_BY = "?search=product_id:";
@@ -34,14 +35,6 @@ export function Drug() {
 
     }, [ndc]);
 
-    const activeIngredients = renderActiveIngredients(data);
-    const productStatus = renderProductStatus(data);
-    const packaging = renderPackaging(data);
-    const routes = renderRoutes(data);
-    const pharmClass = renderPharmClass(data);
-
-
-
     return (
         <Container
             maxWidth="lg"
@@ -51,7 +44,7 @@ export function Drug() {
 
             {data && (
                 <Box className="drug">
-                    <GoBack />
+                    <NavigateToHome />
 
                     <Typography
                         className="drug__title"
@@ -60,17 +53,17 @@ export function Drug() {
                     ><VaccinesIcon className="drug__icon" />{drug.generic_name}</Typography>
 
                     <Box className="drug__info">
-                        {drug.generic_name && <Typography className='drug__info__data'><span className='drug__info__label'>Name:</span> {drug.generic_name}</Typography>}
-                        {drug.product_ndc && <Typography className='drug__info__data'><span className='drug__info__label'>Medicine Code:</span> {drug.product_ndc}</Typography>}
-                        {drug.brand_name && <Typography className='drug__info__data'> <span className='drug__info__label'>Brand:</span> {drug.brand_name}</Typography>}
-                        {drug.labeler_name && <Typography className='drug__info__data'><span className='drug__info__label'>Company:</span> {drug.labeler_name}</Typography>}
-                        {activeIngredients && <Typography className='drug__info__data'><span className='drug__info__label'>Active Ingredients:</span> {activeIngredients}</Typography>}
-                        {productStatus && <Typography className='drug__info__data'><span className='drug__info__label'>Product Status:</span> {productStatus}</Typography>}
-                        {drug.dosage_form && <Typography className='drug__info__data'><span className='drug__info__label'>Dosage forms:</span> {drug.dosage_form}</Typography>}
-                        {routes && <Typography className='drug__info__data'><span className='drug__info__label'>Routes for use:</span> {routes}</Typography>}
-                        {drug.product_type && <Typography className='drug__info__data'><span className='drug__info__label'>Product type:</span> {drug.product_type}</Typography>}
-                        {packaging && <Typography className='drug__info__data'><span className='drug__info__label'>Packaging:</span> {packaging}</Typography>}
-                        {pharmClass && <Typography className='drug__info__data'><span className='drug__info__label'>Pharmacological class:</span> {pharmClass}</Typography>}
+                        <DrugInfoItem label="Name:" value={drug.generic_name} />
+                        <DrugInfoItem label=">Medicine Code:" value={drug.product_ndc} />
+                        <DrugInfoItem label="Brand:" value={drug.brand_name} />
+                        <DrugInfoItem label="Company:" value={drug.labeler_name} />
+                        <DrugInfoItem label="Active Ingredients:" value={renderActiveIngredients(data)} />
+                        <DrugInfoItem label="Product Status:" value={renderProductStatus(data)} />
+                        <DrugInfoItem label="Dosage forms:" value={drug.dosage_form} />
+                        <DrugInfoItem label="Routes for use:" value={renderRoutes(data)} />
+                        <DrugInfoItem label="Product type:" value={drug.product_type} />
+                        <DrugInfoItem label="Packaging:" value={renderPackaging(data)} />
+                        <DrugInfoItem label="Pharmacological class:" value={renderPharmClass(data)} />
                     </Box>
                 </Box>
             )}

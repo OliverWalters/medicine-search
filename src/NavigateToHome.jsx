@@ -2,9 +2,9 @@ import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
-import "./GoBack.css";
+import "./assets/NavigateToHome.css";
 
-export function GoBack() {
+export function NavigateToHome() {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
