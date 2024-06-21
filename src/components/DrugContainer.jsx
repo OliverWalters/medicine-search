@@ -3,19 +3,32 @@ import VaccinesIcon from '@mui/icons-material/Vaccines';
 import { LoadingButton } from '@mui/lab';
 import { useDrugSearch } from '../services/useDrugSearch';
 import { DrugList } from "./DrugList";
+import { useState } from "react";
 import "../assets/DrugContainer.css";
 
 export function DrugContainer() {
+    const [draftDrug, setDraftDrug] = useState("");
+    const [drug, setDrug] = useState("");
+    const [end, setEnd] = useState(10);
+
     const {
         data,
-        drug,
         loading,
-        error,
-        end,
-        setDrug,
-        onSubmit,
-        loadMore
-    } = useDrugSearch();
+        error
+    } = useDrugSearch(drug, end);
+
+    const handleLoadMore = () => {
+        setEnd(end + 10);
+    };
+
+    const handleSubmit = () => {
+        setEnd(10);
+        setDrug(draftDrug);
+    };
+
+    const handleChangeDrugSearch = (e) => {
+        setDraftDrug(e.target.value);
+    };
 
     return (
         <Container className="container"
@@ -33,17 +46,15 @@ export function DrugContainer() {
 
 
             <Box className="drugList"
-                component="form"
                 autoComplete="off"
-                onSubmit={onSubmit}
             >
                 <TextField className="drugList__input"
                     id="drug"
                     label="Drug"
                     variant="outlined"
                     size="small"
-                    value={drug}
-                    onChange={(e) => { setDrug(e.target.value); }}
+                    value={draftDrug}
+                    onChange={handleChangeDrugSearch}
                     error={error.error}
                     helperText={error.message}
                 />
@@ -54,19 +65,20 @@ export function DrugContainer() {
                     variant="contained"
                     loading={loading}
                     loadingIndicator="Loading..."
+                    onClick={handleSubmit}
                 >
                     Search
                 </LoadingButton>
 
                 <Box className="drugList__results">
                     {data && data.results && data.results.map((drug) => (
-                        <DrugList drug={drug} />
+                        <DrugList key={drug.product_id} drug={drug} />
                     ))}
                 </Box>
 
                 {data && data.meta.results.total > 10 && data.meta.results.total > end && (
                     <LoadingButton
-                        onClick={loadMore}
+                        onClick={handleLoadMore}
                         variant="contained"
                         loading={loading}
                         loadingIndicator="Loading..."

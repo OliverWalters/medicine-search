@@ -8,7 +8,6 @@ export function DrugList({ drug }) {
 
     return (
         <Box
-            key={drug.product_id}
             id={drug.product_id}
             onClick={() => navigate(`/drug/${drug.product_id}`)}
             sx={{ width: 1000, border: 1, borderColor: "grey.500", borderRadius: 1, p: 2, m: 1, cursor: "pointer" }}

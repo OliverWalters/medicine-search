@@ -11,15 +11,11 @@ export const useFetchDrugData = (ndc) => {
         const fetchData = async () => {
             try {
                 const response = await fetch(API_URL + SEARCH_BY + `${ndc}`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
                 const jsonData = await response.json();
                 setData(jsonData);
                 setDrug(jsonData.results[0])
             } catch (error) {
-                console.error('Error fetching drug data:', error);
-                setData(null); // Optionally handle error state
+                setData(null);
             }
         };
 
