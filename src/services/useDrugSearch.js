@@ -73,7 +73,6 @@ export const useDrugSearch = () => {
     return {
         data,
         drug,
-        end,
         loading,
         error,
         end,
