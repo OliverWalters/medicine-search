@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-export function SqueletonDrugInfoItem() {
+export function SqueletonDrugInfoItem({label}) {
     return (
-       <Typography className='drug__info__data'><span className='drug__info__label'>Label: </span> ...</Typography>
+       <Typography className='drug__info__data'><span className='drug__info__label'>{label}</span> ...</Typography>
     );
 }

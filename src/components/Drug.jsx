@@ -53,17 +53,17 @@ export function Drug() {
                     ><VaccinesIcon className="drug__icon" />Drug name</Typography>
 
                     <Box className="drug__info">
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
-                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem label="Name:" />
+                        <SqueletonDrugInfoItem label="Medicine Code:" />
+                        <SqueletonDrugInfoItem label="Brand:" />
+                        <SqueletonDrugInfoItem label="Company:" />
+                        <SqueletonDrugInfoItem label="Active Ingredients:" />
+                        <SqueletonDrugInfoItem label="Product Status:" />
+                        <SqueletonDrugInfoItem label="Dosage forms:" />
+                        <SqueletonDrugInfoItem label="Routes for use:" />
+                        <SqueletonDrugInfoItem label="Product type:"/>
+                        <SqueletonDrugInfoItem label="Packaging:" />
+                        <SqueletonDrugInfoItem label="Pharmacological class:" />
                     </Box>
                 </Box>}
 
