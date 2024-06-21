@@ -1,83 +1,24 @@
 import { Box, TextField, Typography } from "@mui/material";
 import { LoadingButton } from '@mui/lab';
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const API_URL = "https://api.fda.gov/drug/ndc.json";
-const SEARCH_BY = "?search=generic_name:";
+import { useDrugSearch } from '../services/useDrugSearch';
 
 export function DrugList() {
-    const [data, setData] = useState(null);
-    const [drug, setDrug] = useState("");
-    const [end, setEnd] = useState(10);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState({
-        error: false,
-        message: ""
-    });
+    const {
+        data,
+        drug,
+        loading,
+        error,
+        end,
+        setDrug,
+        onSubmit,
+        loadMore
+    } = useDrugSearch();
 
     const navigate = useNavigate();
 
-    const fetchData = async (drug, end) => {
-        try {
-            const res = await fetch(API_URL + SEARCH_BY + `*${drug}*&limit=${end}`);
-            const data = await res.json();
-            if (data.error) throw { message: data.error.message };
-            setData(data);
-        } catch (error) {
-            setError({
-                error: true,
-                message: error.message
-            });
-            setData(null);
-        }
-    };
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setEnd(10);  // Reset end to 10 when submit is clicked
-
-        try {
-            setError({
-                error: false,
-                message: ""
-            });
-            if (!drug.trim()) throw { message: "Please enter a drug name" };
-
-            await fetchData(drug, 10);
-
-        } catch (error) {
-            setError({
-                error: true,
-                message: error.message
-            });
-
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const loadMore = async () => {
-        setLoading(true);
-        const newEnd = end + 10;
-        setEnd(newEnd);
-
-        try {
-            await fetchData(drug, newEnd);
-        } catch (error) {
-            setError({
-                error: true,
-                message: error.message
-            });
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
         <Box className="drugList"
-
             component="form"
             autoComplete="off"
             onSubmit={onSubmit}
@@ -104,10 +45,8 @@ export function DrugList() {
             </LoadingButton>
 
             <Box className="drugList__results">
-
                 {data && data.results && data.results.map((drug) => (
                     <Box
-
                         key={drug.product_id}
                         id={drug.product_id}
                         onClick={() => navigate(`/drug/${drug.product_id}`)}
@@ -119,7 +58,6 @@ export function DrugList() {
                     </Box>
                 ))}
             </Box>
-
 
             {data && data.meta.results.total > 10 && data.meta.results.total > end && (
                 <LoadingButton

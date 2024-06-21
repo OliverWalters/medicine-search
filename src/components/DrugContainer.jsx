@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import { DrugList } from "./DrugList";
-import "./assets/DrugContainer.css";
+import "../assets/DrugContainer.css";
 
 export function DrugContainer() {
     return (
@@ -17,6 +17,8 @@ export function DrugContainer() {
                 fontWeight="bold"
                 gutterBottom
             ><VaccinesIcon fontSize="20" sx={{ mr: 2 }} />Drugs Search</Typography>
+
+            
             <DrugList />
         </Container>
 
