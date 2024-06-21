@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 const API_URL = "https://api.fda.gov/drug/ndc.json";
 const SEARCH_BY = "?search=product_id:";
 
-export const useFetchDrugData = (ndc) => {
-    const [data, setData] = useState(null);
+export const useDrug = (ndc) => {
     const [drug, setDrug] = useState(null);
 
     useEffect(() => {
@@ -12,10 +11,9 @@ export const useFetchDrugData = (ndc) => {
             try {
                 const response = await fetch(API_URL + SEARCH_BY + `${ndc}`);
                 const jsonData = await response.json();
-                setData(jsonData);
                 setDrug(jsonData.results[0])
             } catch (error) {
-                setData(null);
+                setDrug(null);
             }
         };
 
@@ -23,5 +21,5 @@ export const useFetchDrugData = (ndc) => {
 
     }, [ndc]);
 
-    return { data, drug };
+    return drug;
 };

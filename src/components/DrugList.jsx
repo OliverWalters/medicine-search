@@ -10,7 +10,7 @@ export function DrugList({ drug }) {
         <Box
             id={drug.product_id}
             onClick={() => navigate(`/drug/${drug.product_id}`)}
-            sx={{ width: 1000, border: 1, borderColor: "grey.500", borderRadius: 1, p: 2, m: 1, cursor: "pointer" }}
+            sx={{ width: "100%", border: 1, borderColor: "grey.500", borderRadius: 1, p: 2, m: 1, cursor: "pointer" }}
         >
             <Typography fontWeight="bold">{drug.generic_name}</Typography>
             <Typography>Brand: {drug.brand_name}</Typography>

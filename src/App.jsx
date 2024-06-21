@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Drug } from "./Drug";
-import { DrugContainer } from "./DrugContainer";
+import { Drug } from "./components/Drug";
+import { DrugContainer } from "./components/DrugContainer";
 
-export function Routing() {
+export function App() {
     return (
         <Router>
             <Routes>
