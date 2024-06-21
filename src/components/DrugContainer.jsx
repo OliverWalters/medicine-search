@@ -78,6 +78,7 @@ export function DrugContainer() {
 
                 {data && data.meta.results.total > 10 && data.meta.results.total > end && (
                     <LoadingButton
+                        className="drugList__btn"
                         onClick={handleLoadMore}
                         variant="contained"
                         loading={loading}
@@ -88,10 +89,6 @@ export function DrugContainer() {
                     </LoadingButton>
                 )}
             </Box>
-
-
-
-
         </Container>
 
     );

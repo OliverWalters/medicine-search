@@ -1,4 +1,4 @@
-export const renderActiveIngredients = ({ active_ingredients }) => {
+export const joinActiveIngredients = ({ active_ingredients }) => {
     if (!active_ingredients || active_ingredients.length === 0) {
         return null;
     }
@@ -7,12 +7,12 @@ export const renderActiveIngredients = ({ active_ingredients }) => {
 };
 
 
-export const renderProductStatus = ({ finished }) => {
+export const joinProductStatus = ({ finished }) => {
     return finished ? 'Product finished' : 'Product in development';
 };
 
 
-export const renderPackaging = ({ packaging }) => {
+export const joinPackaging = ({ packaging }) => {
     if (!packaging || packaging.length === 0) {
         return null;
     }
@@ -21,7 +21,7 @@ export const renderPackaging = ({ packaging }) => {
 };
 
 
-export const renderRoutes = ({ route }) => {
+export const joinRoutes = ({ route }) => {
     if (!route || route.length === 0) {
         return null;
     }
@@ -30,7 +30,7 @@ export const renderRoutes = ({ route }) => {
 };
 
 
-export const renderPharmClass = ({ pharm_class }) => {
+export const joinPharmClass = ({ pharm_class }) => {
     if (!pharm_class || pharm_class.length === 0) {
         return null;
     }

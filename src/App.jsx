@@ -7,7 +7,7 @@ export function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<DrugContainer />} />
-                <Route path="/drug/:ndc" element={<Drug />} />
+                <Route path="/drug/:id" element={<Drug />} />
             </Routes>
         </Router>
     );

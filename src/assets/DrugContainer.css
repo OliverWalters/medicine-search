@@ -4,6 +4,8 @@
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.578);
     margin-top: 70px;
     margin-bottom: 70px;
+    width: 90% !important;
+    min-height: 800px;
 }
 
 .drugList {
@@ -11,7 +13,6 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
-    min-width: 1000px;
     margin-top: 40px;
 }
 
@@ -20,10 +21,27 @@
 }
 
 .drugList__btn {
-    width: 400px;
+    width: 400px ;
     margin-top: 20px !important;
 }
 
 .drugList__results {
+    width: 80% !important;
     margin: 30px;
+}
+.drugList__empty{
+    margin-top: 100px !important;
+    border: solid red   2px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+@media (max-width:768px) {
+    .drugList__input {
+        width: 200px;
+    }
+    
+    .drugList__btn {
+        width: 200px !important;
+    }
 }

@@ -5,12 +5,13 @@ import { useDrug } from '../services/useDrug';
 import { NavigateToHome } from './NavigateToHome';
 import { DrugInfoItem } from './DrugInfoItem';
 import "../assets/Drug.css";
-import { renderActiveIngredients, renderPackaging, renderPharmClass, renderProductStatus, renderRoutes } from '../services/dataRenders';
+import { joinActiveIngredients, joinPackaging, joinPharmClass, joinProductStatus, joinRoutes } from '../services/dataJoiners';
+import { SqueletonDrugInfoItem } from './SqueletonDrugInfoItem';
 
 
 export function Drug() {
-    const { ndc } = useParams();
-    const drug = useDrug(ndc);
+    const { id } = useParams();
+    const drug = useDrug(id);
 
     return (
         <Container
@@ -33,17 +34,38 @@ export function Drug() {
                         <DrugInfoItem label="Medicine Code:" value={drug.product_ndc} />
                         <DrugInfoItem label="Brand:" value={drug.brand_name} />
                         <DrugInfoItem label="Company:" value={drug.labeler_name} />
-                        <DrugInfoItem label="Active Ingredients:" value={renderActiveIngredients(drug)} />
-                        <DrugInfoItem label="Product Status:" value={renderProductStatus(drug)} />
+                        <DrugInfoItem label="Active Ingredients:" value={joinActiveIngredients(drug)} />
+                        <DrugInfoItem label="Product Status:" value={joinProductStatus(drug)} />
                         <DrugInfoItem label="Dosage forms:" value={drug.dosage_form} />
-                        <DrugInfoItem label="Routes for use:" value={renderRoutes(drug)} />
+                        <DrugInfoItem label="Routes for use:" value={joinRoutes(drug)} />
                         <DrugInfoItem label="Product type:" value={drug.product_type} />
-                        <DrugInfoItem label="Packaging:" value={renderPackaging(drug)} />
-                        <DrugInfoItem label="Pharmacological class:" value={renderPharmClass(drug)} />
+                        <DrugInfoItem label="Packaging:" value={joinPackaging(drug)} />
+                        <DrugInfoItem label="Pharmacological class:" value={joinPharmClass(drug)} />
                     </Box>
                 </Box>
             )}
-            {!drug && <Typography className='loading'>Loading...</Typography>}
+            {!drug && <Box className="drug">
+
+                    <Typography
+                        className="drug__title"
+                        variant="h4"
+                        component="h1"
+                    ><VaccinesIcon className="drug__icon" />Drug name</Typography>
+
+                    <Box className="drug__info">
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                        <SqueletonDrugInfoItem />
+                    </Box>
+                </Box>}
 
         </ Container >
     );
