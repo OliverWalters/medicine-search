@@ -42,4 +42,4 @@ Enjoy using the Medicine Search App!
 
 ## Contact
 
-For any inquiries, please contact us at oliver22official@gmail.com.
+For any inquiries, please contact me at oliver22official@gmail.com.
