@@ -43,8 +43,9 @@ export function Drug() {
                         <DrugInfoItem label="Pharmacological class:" value={joinPharmClass(drug)} />
                     </Box>
                 </Box>
-            )}
-            {!drug && <Box className="drug">
+            )
+            {!drug && (
+                <Box className="drug">
 
                     <Typography
                         className="drug__title"
@@ -65,8 +66,9 @@ export function Drug() {
                         <SkeletonDrugInfoItem label="Packaging:" />
                         <SkeletonDrugInfoItem label="Pharmacological class:" />
                     </Box>
-                </Box>}
+                </Box>
+            )
 
-        </ Container >
+        </Container>
     );
 }
