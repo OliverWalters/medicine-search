@@ -67,6 +67,7 @@ export function Drug() {
                     </Box>
                 </Box>}
 
-        </ Container >
+        </Container>
     );
 }
+
