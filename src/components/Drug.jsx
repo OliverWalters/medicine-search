@@ -6,7 +6,7 @@ import { NavigateToHome } from './NavigateToHome';
 import { DrugInfoItem } from './DrugInfoItem';
 import "../assets/Drug.css";
 import { joinActiveIngredients, joinPackaging, joinPharmClass, joinProductStatus, joinRoutes } from '../services/dataJoiners';
-import { SqueletonDrugInfoItem } from './SqueletonDrugInfoItem';
+import { SkeletonDrugInfoItem } from './SkeletonDrugInfoItem';
 
 
 export function Drug() {
@@ -53,17 +53,17 @@ export function Drug() {
                     ><VaccinesIcon className="drug__icon" />Drug name</Typography>
 
                     <Box className="drug__info">
-                        <SqueletonDrugInfoItem label="Name:" />
-                        <SqueletonDrugInfoItem label="Medicine Code:" />
-                        <SqueletonDrugInfoItem label="Brand:" />
-                        <SqueletonDrugInfoItem label="Company:" />
-                        <SqueletonDrugInfoItem label="Active Ingredients:" />
-                        <SqueletonDrugInfoItem label="Product Status:" />
-                        <SqueletonDrugInfoItem label="Dosage forms:" />
-                        <SqueletonDrugInfoItem label="Routes for use:" />
-                        <SqueletonDrugInfoItem label="Product type:"/>
-                        <SqueletonDrugInfoItem label="Packaging:" />
-                        <SqueletonDrugInfoItem label="Pharmacological class:" />
+                        <SkeletonDrugInfoItem label="Name:" />
+                        <SkeletonDrugInfoItem label="Medicine Code:" />
+                        <SkeletonDrugInfoItem label="Brand:" />
+                        <SkeletonDrugInfoItem label="Company:" />
+                        <SkeletonDrugInfoItem label="Active Ingredients:" />
+                        <SkeletonDrugInfoItem label="Product Status:" />
+                        <SkeletonDrugInfoItem label="Dosage forms:" />
+                        <SkeletonDrugInfoItem label="Routes for use:" />
+                        <SkeletonDrugInfoItem label="Product type:"/>
+                        <SkeletonDrugInfoItem label="Packaging:" />
+                        <SkeletonDrugInfoItem label="Pharmacological class:" />
                     </Box>
                 </Box>}
 
